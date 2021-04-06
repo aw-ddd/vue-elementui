@@ -1,6 +1,8 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+    <div class="dashboard-text">
+      登录用户: {{ name }}
+    </div>
   </div>
 </template>
 
@@ -13,6 +15,9 @@ export default {
     ...mapGetters([
       'name'
     ])
+  },
+  methods:{
+
   }
 }
 </script>

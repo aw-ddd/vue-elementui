@@ -36,13 +36,11 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
   {
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
   },
-
   {
     path: '/',
     component: Layout,
@@ -51,7 +49,7 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
+      meta: { title: '首页', icon: 'dashboard' }
     }]
   },
 
@@ -150,15 +148,27 @@ export const constantRoutes = [
   },
 
   {
-    path: 'external-link',
+    path: '/blog',
     component: Layout,
+    redirect: '/blog/write',
+    name: 'Blog',
+    meta: { title: '博客', icon: 'form' },
     children: [
       {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
+        path: 'write',
+        name: 'Write',
+        component: () => import('@/views/blog/index'),
+        meta: { title: '创建博客'}
+      },
+      {
+        path: '/list',
+        name: 'List',
+        component:()=>import('@/views/blog/list'),
+        meta: { title: '博客列表'}
+      },
     ]
   },
+
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }

@@ -46,7 +46,7 @@ router.beforeEach(async(to, from, next) => {
     }
   } else {
     /* has no token*/
-
+    // eslint-disable-next-line no-debugger
     if (whiteList.indexOf(to.path) !== -1) {
       // in the free login whitelist, go directly
       next()
