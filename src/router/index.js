@@ -13,7 +13,7 @@ import Layout from '@/layout'
  * hidden: true                   if set true, item will not show in the sidebar(default is false)
  * alwaysShow: true               if set true, will always show the root menu
  *                                if not set alwaysShow, when item has more than one children route,
- *                                it will becomes nested mode, otherwise not show the root menu
+ *                                it will becomes demo mode, otherwise not show the root menu
  * redirect: noRedirect           if set noRedirect will no redirect in the breadcrumb
  * name:'router-name'             the name is used by <keep-alive> (must set!!!)
  * meta : {
@@ -89,61 +89,27 @@ export const constantRoutes = [
   },
 
   {
-    path: '/nested',
+    path: '/demo',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    redirect: '/demo/mora',
+    name: 'Demo',
     meta: {
-      title: 'Nested',
+      title: 'Demo',
       icon: 'nested'
     },
     children: [
       {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
+        path: 'mora',
+        component: () => import('@/views/demo/mora/index'), // Parent router-view
+        name: 'Mora',
+        meta: { title: 'mora' },
       },
       {
         path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
+        component: () => import('@/views/demo/menu2/index'), // Parent router-view
         name: 'Menu2',
-        meta: { title: 'menu2' }
-      }
+        meta: { title: 'menu2' },
+      },
     ]
   },
 
